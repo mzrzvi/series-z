@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>Series Z</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="/static/pages/assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="/static/pages/assets/css/main.css" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="/static/pages/assets/css/ie8.css" /><![endif]-->
+    </head>
+    <body>
+
+        <!-- Header -->
+            <section id="header">
+                <header>
+                    <span class="image avatar"><img src="{{ founder['image_url'] }}" alt="" /></span>
+                    <h1 id="logo"><a href="#">{{ founder['name'] }}</a></h1>
+                </header>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="#about" class="active">About</a></li>
+                        <li><a href="#Startups">Startups</a></li>
+                    </ul>
+                </nav>
+                <footer>
+               </footer>
+            </section>
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Main -->
+                    <div id="main">
+
+                        <!-- About -->
+                            <section id="one">
+                                <footer>
+                                   <ul class="icons">
+                                        <li><a href="/" class="icon fa-home">Home<span class="label">Home</span></a></li>
+
+                                        <li><a href="/startups" class="icon fa-gears">Startups<span class="label">Startups</span></a></li>
+
+                                        <li><a href="/founders" class="icon fa-users">Founders<span class="label">Founders</span></a></li>
+
+                                        <li><a href="/cities" class="icon fa-building">Cities<span class="label">Cities</span></a></li>
+                                    </ul>
+                                </footer>
+                            </section>
+
+                        <!-- About -->
+                            <section id="about">
+                                <div class="container">
+                                    <h3>About</h3>
+                                    <p>{{ founder['bio'] }}</p>
+                                    <ul class="feature-icons">
+                                        <li class="fa-fire">{{ founder.popularity }} popularity score</li>
+                                        <li class="fa-users">#{{ founder.rank }} best founder</li>
+                                        <li class="fa-star">{{ founder.num_startups }} startup{{'s' if founder.num_startups > 1}}</li>
+                                        <li class="fa-building"><a href="/cities/{{founder.city.id}}">{{ founder.city_name }}</a></li>
+                                    </ul>
+                                </div>
+                            </section>
+
+                        <!-- Startups -->
+                            <section id="Startups">
+                                <div class="container">
+                                    <h3>Startups</h3>
+                                    <p>Here are the Startups I've founded.</p>
+                                    <div class="features">
+                                        {% for startup in founder.startups %}
+                                        <article>
+                                            <a href="/startups/{{ startup.id }}" class="image"><img src="{{ startup.logo_url }}" alt="" /></a>
+                                            <div class="inner">
+                                                <h4>{{ startup.name }}</h4>
+                                                <p>{{ startup.product_desc[:140] }} <a href="/startups/{{ startup.id }}">...</a> </p>
+                                            </div>
+                                        </article>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </section>
+
+                    </div>
+
+                <!-- Footer -->
+                    <section id="footer">
+                        <div class="container">
+                        </div>
+                    </section>
+
+            </div>
+
+        <!-- Scripts -->
+            <script src="/static/pages/assets/js/jquery.min.js"></script>
+            <script src="/static/pages/assets/js/jquery.scrollzer.min.js"></script>
+            <script src="/static/pages/assets/js/jquery.scrolly.min.js"></script>
+            <script src="/static/pages/assets/js/skel.min.js"></script>
+            <script src="/static/pages/assets/js/util.js"></script>
+            <!--[if lte IE 8]><script src="/static/pages/assets/js/ie/respond.min.js"></script><![endif]-->
+            <script src="/static/pages/assets/js/main.js"></script>
+
+    </body>
+</html>

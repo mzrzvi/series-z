@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+app/js/bundle.js
+app/js/bundle.min.js
+build
+npm-debug.log
+*.swp
+__pycache__/
+*.pyc

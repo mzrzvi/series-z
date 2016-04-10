@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Series Z | Founders</title>
+        <meta charset="utf-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="static/js-b/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="static/css-b/main.css" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="static/css-b/ie8.css" /><![endif]-->
+        <script src="/static/js-b/sorttable.js"></script>
+    </head>
+    <body class="landing">
+        <div id="page-wrapper">
+
+            <!-- Header -->
+                <header id="header" class="alt">
+                    <h1><a href="/">Series Z</a></h1>
+                    <nav id="nav">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/startups">Startups</a></li>
+                            <li><a href="/founders">Founders</a></li>
+                            <li><a href="/cities">Cities</a></li>
+                        </ul>
+                    </nav>
+                </header>
+
+            <!-- Banner -->
+                <section id="banner">
+                    <h2>Founders</h2>
+                </section>
+
+            <!-- Main -->
+                <section id="main" class="container">
+                    <div class="12u">
+
+                        <!-- Table -->
+                            <section class="box">
+
+                                <!-- <h4>Default</h4> -->
+                                <div class="table-wrapper">
+                                    <table class="sortable with-pager" id="main-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Popularity</th>
+                                                <th>Number of startups</th>
+                                                <th>City</th>
+                                                <th>Rank</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for founder in founders %}
+                                            <tr>
+                                                <td><a href="/founders/{{ founder.id }}">{{ founder.name }}</a></td>
+                                                <td>{{ founder.popularity }}</td>
+                                                <td>{{ founder.num_startups }}</td>
+                                                <td><a href="/cities/{{ founder.city.id }}">{{ founder.city.name }}</a></td>
+                                                <td>{{ founder.rank }}</td>
+
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                        <tfoot>
+                                              <ul class="pager" style="list-style-type:none">
+                                                <li class="previous" style="display: inline">
+                                                  <a href="#">
+                                                    &laquo; Prev
+                                                  </a>
+                                                </li>
+                                                <li class="next" style="display: inline">
+                                                  <a href="#">
+                                                    Next &raquo;
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </section>
+
+                    </div>
+
+
+        </div>
+
+        <!-- Scripts -->
+            <script src="/static/js-b/jquery.min.js"></script>
+            <script src="/static/js-b/jquery.dropotron.min.js"></script>
+            <script src="/static/js-b/jquery.scrollgress.min.js"></script>
+            <script src="/static/js-b/skel.min.js"></script>
+            <script src="/static/js-b/util.js"></script>
+            <script src="/static/js-b/simple-bootstrap-paginator.js"></script>
+            <!--[if lte IE 8]><script src="/static/js-b/ie/respond.min.js"></script><![endif]-->
+            <script src="/static/js-b/main.js"></script>
+            <script src="/static/js-b/simple-bootstrap-paginator.js"></script>
+            <script type="text/javascript">
+                $('#main-table').oneSimpleTablePagination({rowsPerPage: 5})
+            </script>
+
+    </body>
+</html>
