@@ -1,1 +1,3 @@
-# series-z
+# Series Z
+
+A flask app
