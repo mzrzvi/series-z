@@ -22,7 +22,7 @@ from sqlalchemy import create_engine, exists
 from sqlalchemy.orm import scoped_session, sessionmaker
 
 
-engine = create_engine('sqlite:///seriesz.db')
+engine = create_engine('sqlite:///series-z.db')
 Session = sessionmaker(bind=engine)
 db_session = Session()
 
