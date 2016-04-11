@@ -12,8 +12,6 @@ from sqlalchemy.sql import exists
 
 from models import *
 
-URI = 'postgresql://postgres:postgres@146.20.68.107/postgres'
-
 app = Flask(__name__)
 
 app.config.update(PROPAGATE_EXCEPTIONS = True)
@@ -24,7 +22,7 @@ from sqlalchemy import create_engine, exists
 from sqlalchemy.orm import scoped_session, sessionmaker
 
 
-engine = create_engine(URI)
+engine = create_engine('sqlite:///seriesz.db')
 Session = sessionmaker(bind=engine)
 db_session = Session()
 
