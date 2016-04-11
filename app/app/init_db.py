@@ -4,7 +4,7 @@ from models import *
 
 print("Starting script.")
 
-engine = create_engine('sqlite:///seriesz.db', echo=True)
+engine = create_engine('sqlite:///series-z.db', echo=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))

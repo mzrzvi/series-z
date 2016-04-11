@@ -12,7 +12,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 #Setup
 #-----
 
-URI = 'postgresql://postgres:postgres@146.20.68.107/postgres'
+URI = 'sqlite:///series-z.db'
 
 num_missed_startups = 0
 num_missed_founders = 0
@@ -20,7 +20,7 @@ num_missed_cities = 0
 num_missed_city_data = 0
 
 def get_db_session() :
-    engine = create_engine(URI, echo=True)
+    engine = create_engine(URI)
     logging.info("DB engine created")
 
     Session = sessionmaker(bind=engine)

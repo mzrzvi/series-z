@@ -12,7 +12,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 #Setup
 #-----
 
-URI = 'postgresql://postgres:postgres@146.20.68.107/postgres'
+URI = 'sqlite:///series-z.db'
 
 num_missed_startups = 0
 num_missed_founders = 0
