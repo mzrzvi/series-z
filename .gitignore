@@ -7,3 +7,4 @@ npm-debug.log
 *.swp
 __pycache__/
 *.pyc
+series-z/test_dbs/*
