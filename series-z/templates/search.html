@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Series Z | Cities</title>
+        <meta charset="utf-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="static/js-b/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="static/css-b/search.css" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="static/css-b/ie8.css" /><![endif]-->
+        <script src="/static/js-b/sorttable.js"></script>          
+    </head>
+    <body class="landing">
+        <div id="page-wrapper">
+
+            <!-- Header -->
+                <header id="header" class="alt">
+                    <h1><a href="/">Series Z</a></h1>
+                    <nav id="nav">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/startups">Startups</a></li>
+                            <li><a href="/founders">Founders</a></li>
+                            <li><a href="/cities">Cities</a></li>
+                        </ul>
+                    </nav>
+                </header>
+
+            <!-- Banner -->
+                <section id="banner">
+                    <h2>Search Results for {{ text }}</h2>
+                </section>
+
+            <!-- Main -->
+                <section id="main" class="container">
+                                            <div class="12u">
+
+                            <!-- ANDS -->
+                                <section class="box">
+                                    <h2>AND results</h2>
+
+                                    <div class="table-wrapper">
+                                        <h3>Startups</h3>
+                                        <table class="sortable with-pager">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>City</th>
+                                                    <th>Founders</th>
+                                                    <th>Market</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for startup in and_results.startups %}
+                                                <tr>
+                                                    <td><a href="/startups/{{ startup.id }}">{{ startup.name }}</a></td>
+                                                    <td><a href="/cities/{{ startup.city.id }}">{{ startup.city.name }}</a></td>
+                                                    <td>{% for founder in startup.founders %}<a href="founders/{{founder.id}}">{{ founder.name }}</a>,  {% endfor %}</td>
+                                                    <td>{{ startup.market.capitalize() }}</td>
+
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                            <tfoot>
+                                              <ul class="pager" style="list-style-type:none">
+                                                <li class="previous" style="display: inline">
+                                                  <a href="#">
+                                                    &laquo; Prev
+                                                  </a>
+                                                </li>
+                                                <li class="next" style="display: inline">
+                                                  <a href="#">
+                                                    Next &raquo;
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+
+                                    <div class="table-wrapper">
+                                        <h3>Founders</h3>
+                                    <table class="sortable with-pager" id="main-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Popularity</th>
+                                                <th>Number of startups</th>
+                                                <th>City</th>
+                                                <th>Rank</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for founder in and_results.founders %}
+                                            <tr>
+                                                <td><a href="/founders/{{ founder.id }}">{{ founder.name }}</a></td>
+                                                <td>{{ founder.popularity }}</td>
+                                                <td>{{ founder.num_startups }}</td>
+                                                <td><a href="/cities/{{ founder.city.id }}">{{ founder.city.name }}</a></td>
+                                                <td>{{ founder.rank }}</td>
+
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                        <tfoot>
+                                              <ul class="pager" style="list-style-type:none">
+                                                <li class="previous" style="display: inline">
+                                                  <a href="#">
+                                                    &laquo; Prev
+                                                  </a>
+                                                </li>
+                                                <li class="next" style="display: inline">
+                                                  <a href="#">
+                                                    Next &raquo;
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+                                    <!-- <h4>Default</h4> -->
+                                    <div class="table-wrapper">
+                                        <h3>Cities</h3>
+                                        <table class="sortable with-pager">
+                                            <thead>
+                                                <tr>
+                                                    <th>City</th>
+                                                    <th>Popularity</th>
+                                                    <th>Number of Companies</th>
+                                                    <th>Number of Investor</th>
+                                                    <th>Number of Founders</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for city in and_results.cities %}
+                                                <tr>
+                                                    <td><a href="/cities/{{ city['id'] }}">{{ city.name }}</a></td>
+                                                    <td>{{ city.popularity }}</td>
+                                                    <td>{{ city.num_companies }}</td>
+                                                    <td>{{ city.investor_followers }}</td>
+                                                    <td>{{ city.num_people }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                            <tfoot>
+                                              <ul class="pager" style="list-style-type:none">
+                                                <li class="previous" style="display: inline">
+                                                  <a href="#">
+                                                    &laquo; Prev
+                                                  </a>
+                                                </li>
+                                                <li class="next" style="display: inline">
+                                                  <a href="#">
+                                                    Next &raquo;
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </section>
+
+
+
+                                <!-- ORs  -->
+                                <section class="box">
+                                    <h2>OR results</h2>
+                                    <div class="table-wrapper">
+                                        <h3>Startups</h3>
+                                        <table class="sortable with-pager">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>City</th>
+                                                    <th>Popularity</th>
+                                                    <th>Number of Founders</th>
+                                                    <th>Market</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for startup in and_results.startups %}
+                                                <tr>
+                                                    <td><a href="/startups/{{ startup.id }}">{{ startup.name }}</a></td>
+                                                    <td><a href="/cities/{{ startup.city.id }}">{{ startup.city.name }}</a></td>
+                                                    <td>{% for founder in startup.founders %}<a href="founders/{{founder.id}}">{{ founder.name }}</a>,  {% endfor %}</td>
+                                                    <td>{{ startup.market.capitalize() }}</td>
+
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                            <tfoot>
+                                              <ul class="pager" style="list-style-type:none">
+                                                <li class="previous" style="display: inline">
+                                                  <a href="#">
+                                                    &laquo; Prev
+                                                  </a>
+                                                </li>
+                                                <li class="next" style="display: inline">
+                                                  <a href="#">
+                                                    Next &raquo;
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+
+                                    <div class="table-wrapper">
+                                        <h3>Founders</h3>
+                                    <table class="sortable with-pager" id="main-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Popularity</th>
+                                                <th>Number of startups</th>
+                                                <th>City</th>
+                                                <th>Rank</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for founder in or_results.founders %}
+                                            <tr>
+                                                <td><a href="/founders/{{ founder.id }}">{{ founder.name }}</a></td>
+                                                <td>{{ founder.popularity }}</td>
+                                                <td>{{ founder.num_startups }}</td>
+                                                <td><a href="/cities/{{ founder.city.id }}">{{ founder.city.name }}</a></td>
+                                                <td>{{ founder.rank }}</td>
+
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                        <tfoot>
+                                              <ul class="pager" style="list-style-type:none">
+                                                <li class="previous" style="display: inline">
+                                                  <a href="#">
+                                                    &laquo; Prev
+                                                  </a>
+                                                </li>
+                                                <li class="next" style="display: inline">
+                                                  <a href="#">
+                                                    Next &raquo;
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+                                    <!-- <h4>Default</h4> -->
+                                    <div class="table-wrapper">
+                                        <h3>Cities</h3>
+                                        <table class="sortable with-pager">
+                                            <thead>
+                                                <tr>
+                                                    <th>City</th>
+                                                    <th>Popularity</th>
+                                                    <th>Number of Companies</th>
+                                                    <th>Number of Investor</th>
+                                                    <th>Number of Founders</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for city in or_results.cities %}
+                                                <tr>
+                                                    <td><a href="/cities/{{ city['id'] }}">{{ city.name }}</a></td>
+                                                    <td>{{ city.popularity }}</td>
+                                                    <td>{{ city.num_companies }}</td>
+                                                    <td>{{ city.investor_followers }}</td>
+                                                    <td>{{ city.num_people }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                            <tfoot>
+                                              <ul class="pager" style="list-style-type:none">
+                                                <li class="previous" style="display: inline">
+                                                  <a href="#">
+                                                    &laquo; Prev
+                                                  </a>
+                                                </li>
+                                                <li class="next" style="display: inline">
+                                                  <a href="#">
+                                                    Next &raquo;
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </section>
+
+
+
+                        </div>
+
+
+        </div>
+
+        <!-- Scripts -->
+            <script src="/static/js-b/jquery.min.js"></script>
+            <script src="/static/js-b/jquery.dropotron.min.js"></script>
+            <script src="/static/js-b/jquery.scrollgress.min.js"></script>
+            <script src="/static/js-b/skel.min.js"></script>
+            <script src="/static/js-b/util.js"></script>
+            <script src="/static/js-b/simple-bootstrap-paginator.js"></script>
+            <script src="/static/js-b/jquery.highlight-5.js"></script>
+            <!--[if lte IE 8]><script src="/static/js-b/ie/respond.min.js"></script><![endif]-->
+            <script src="/static/js-b/main.js"></script>
+            <script type="text/javascript">
+            var text = '{{text}}';
+            var tokens = text.split(" ");
+            console.log(tokens);
+            for(i in tokens) {
+                $('td').highlight(tokens[i]);                
+            }
+            </script>
+
+    </body>
+</html>

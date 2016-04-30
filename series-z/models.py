@@ -3,9 +3,8 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, Table
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
+from init_db import Base
 
-
-Base = declarative_base()
 
 #---------
 #Relations
@@ -78,10 +77,6 @@ class Startup(Base):
     product_desc = Column(String)
     company_url = Column(String)
     logo_url = Column(String)
-    thumb_url = Column(String)
-    twitter_url = Column(String)
-    blog_url = Column(String)
-    video_url = Column(String)
 
     #Startup foreign keys
     city_id = Column(Integer, ForeignKey('cities.id'))
@@ -90,8 +85,7 @@ class Startup(Base):
     city = relationship("City", back_populates="startups")
     founders = relationship("Founder", secondary=startup_to_founder, back_populates="startups")
 
-    def __init__(self, name, location, popularity, market, num_founders, product_desc, company_url, logo_url,
-                    thumb_url, twitter_url, blog_url, video_url, city):
+    def __init__(self, name, location, popularity, market, num_founders, product_desc, company_url, logo_url, city):
         """
         Standard constructor for Startup
         """
@@ -103,10 +97,6 @@ class Startup(Base):
         self.product_desc = product_desc
         self.company_url = company_url
         self.logo_url = logo_url
-        self.thumb_url = thumb_url
-        self.twitter_url = twitter_url
-        self.blog_url = blog_url
-        self.video_url = video_url
         self.city = city
 
 #--------

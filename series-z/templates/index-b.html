@@ -31,14 +31,24 @@
                 <p>Find the worlds best <b>startups</b>, <b>founders</b>, and <b>cities</b>.</p>
             </header>
 
+            <form action="/search" method="POST" id="form">
+                <input type="text" name="text" placeholder="Search" style="width: 250px">
+            </form>
+
+            <button type="submit" form="form" value="Search" style="width: 100px">Search</button>
+            <br>
+
             <h3><a href="/startups">Startups</a></h3>
             <h3><a href="/founders">Founders</a></h3>
             <h3><a href="/cities">Cities</a></h3>
 
+
         <!-- Footer -->
             <footer id="footer">
                 <ul class="copyright">
-                    <li><a href="/about">About</a><li><li>&copy; Stealth Labs</li>
+                    <li><a href="/about">About</a><li>
+                    <li><a href="/cats">Cats</a><li>
+                    <li>&copy; Stealth Labs</li>
                 </ul>
             </footer>
 

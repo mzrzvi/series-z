@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title>
+   Series Z | Cats
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <!--[if lte IE 8]><script src="static/js-b/ie/html5shiv.js"></script><![endif]-->
+  <link href="static/css-b/cats.css" rel="stylesheet"/>
+  <!--[if lte IE 8]><link rel="stylesheet" href="static/css-b/ie8.css" /><![endif]-->
+  <script src="/static/js-b/sorttable.js">
+  </script>
+  <link href="https://www.highcharts.com/highslide/highslide.css" rel="stylesheet"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript">
+  </script>
+  <script src="https://code.highcharts.com/highcharts.js" type="text/javascript">
+  </script>
+  <script src="https://code.highcharts.com/highcharts-more.js" type="text/javascript">
+  </script>
+  <script src="https://code.highcharts.com/modules/exporting.js" type="text/javascript">
+  </script>
+ </head>
+ <body class="landing">
+  <div id="page-wrapper">
+   <!-- Header -->
+   <header class="alt" id="header">
+    <h1>
+     <a href="/">
+      Series Z
+     </a>
+    </h1>
+    <nav id="nav">
+     <ul>
+      <li>
+       <a href="/">
+        Home
+       </a>
+      </li>
+      <li>
+       <a href="/startups">
+        Startups
+       </a>
+      </li>
+      <li>
+       <a href="/founders">
+        Founders
+       </a>
+      </li>
+      <li>
+       <a href="/cities">
+        Cities
+       </a>
+      </li>
+     </ul>
+    </nav>
+   </header>
+   <!-- Banner -->
+   <section id="banner">
+    <h2>
+     Cats
+    </h2>
+   </section>
+   <!-- Main -->
+   <section class="container" id="main">
+    <div class="12u">
+     <!-- Table -->
+     <section class="box">
+      <!-- <h4>Default</h4> -->
+      <div class="table-wrapper">
+       <div id="container" style="">
+        Loading....
+       </div>
+       <script>
+        $(function(){
+
+
+ 
+
+
+
+
+            Highcharts.setOptions({"lang": {}, "global": {}});
+            var option = {"loading": {}, "subtitle": {}, "xAxis": {"title": {"text": "Min Weights (lbs)", "enabled": true}}, "title": {"text": "Cat Weight Min vs. Max"}, "series": {}, "labels": {}, "yAxis": {"title": {"text": "Max Weights (lbs)", "enabled": true}}, "chart": {"renderTo": "container", "borderWidth": 1, "marginRight": 50}, "tooltip": {"headerFormat": "<b>Weights</b><br/>", "pointFormat": "Min: {point.x} lbs<br/>Max: {point.y} lbs"}, "plotOptions": {}, "credits": {"enabled": false}, "colors": {}, "pane": {}, "exporting": {}, "drilldown": {}, "navigation": {}, "legend": {}};
+
+
+            var data = [{"data": [[7.5, 16.0], [7.0, 15.0], [6.8, 11.0], [8.0, 15.0], [7.9, 15.0], [8.5, 15.5], [9.0, 15.0], [6.0, 11.0], [8.8, 22.0], [7.9, 18.0], [6.0, 12.0], [11.0, 22.0], [8.4, 18.0], [6.8, 14.0], [8.8, 18.0], [6.0, 12.0], [7.0, 17.0], [15.0, 20.0], [8.75, 12.0], [5.0, 9.0], [5.9, 10.0], [7.7, 12.0], [6.0, 9.5], [7.5, 11.0], [5.0, 11.0], [6.7, 14.0], [8.0, 15.0], [5.5, 11.0], [7.0, 14.0], [5.5, 16.0], [6.0, 11.0], [10.0, 20.0], [8.0, 15.0], [6.0, 9.5], [7.9, 9.5], [7.5, 11.0], [6.0, 11.0], [7.0, 13.0], [7.0, 12.0], [9.0, 22.0], [7.7, 12.0], [6.2, 9.5], [5.0, 10.6], [7.0, 20.0], [6.0, 14.0], [7.5, 11.2], [10.0, 13.0], [6.6, 14.0], [8.0, 15.0], [7.0, 11.0], [8.8, 18.0], [11.0, 16.0], [10.0, 20.0], [5.5, 12.0], [15.0, 30.0], [6.0, 13.0], [7.0, 11.0], [6.0, 12.0], [7.5, 11.0], [8.8, 20.0], [4.0, 9.0], [6.0, 12.0], [7.7, 14.3], [5.0, 9.0], [7.0, 12.0], [7.5, 15.0], [8.0, 14.0], [6.0, 12.0], [7.5, 11.2], [6.0, 11.0], [8.0, 15.0], [7.0, 19.0], [14.0, 16.0], [7.5, 16.0], [7.0, 15.0], [6.8, 11.0], [8.0, 15.0], [6.0, 12.0], [7.9, 15.0], [8.5, 15.5], [6.0, 11.0], [8.8, 22.0], [7.9, 18.0], [6.0, 12.0], [11.0, 22.0], [8.4, 18.0], [6.8, 14.0], [9.0, 15.0], [8.8, 18.0], [6.0, 12.0], [7.0, 17.0], [15.0, 20.0], [8.75, 12.0], [5.9, 10.0], [7.7, 12.0], [6.0, 9.5], [7.5, 11.0], [5.0, 11.0], [6.7, 14.0], [7.0, 14.0], [5.5, 16.0], [6.0, 11.0], [10.0, 20.0], [8.0, 15.0], [6.0, 9.5], [7.9, 9.5], [6.0, 11.0], [7.0, 13.0], [7.0, 12.0], [9.0, 22.0], [7.7, 12.0], [6.2, 9.5], [5.0, 10.6], [5.5, 11.0], [7.0, 20.0], [6.0, 14.0], [7.5, 11.2], [10.0, 13.0], [6.6, 14.0], [8.0, 15.0], [7.0, 11.0], [8.8, 18.0], [11.0, 16.0], [10.0, 20.0], [5.5, 12.0], [15.0, 30.0], [6.0, 13.0], [7.0, 11.0], [7.5, 11.0], [6.0, 12.0], [7.5, 11.0], [8.8, 20.0], [4.0, 9.0], [7.7, 14.3], [7.0, 12.0], [7.5, 15.0], [8.0, 14.0], [6.0, 12.0], [7.5, 11.2], [6.0, 11.0], [7.0, 19.0], [14.0, 16.0]], "type": "scatter", "name": "Cat Weights"}];
+            option.series = data;
+
+ 
+
+            var chart = new Highcharts.Chart(option);
+
+
+
+
+
+ 
+
+
+        
+    });
+       </script>
+      </div>
+     </section>
+    </div>
+   </section>
+  </div>
+  <!-- Scripts -->
+  <script src="/static/js-b/jquery.min.js">
+  </script>
+  <script src="/static/js-b/jquery.dropotron.min.js">
+  </script>
+  <script src="/static/js-b/jquery.scrollgress.min.js">
+  </script>
+  <script src="/static/js-b/skel.min.js">
+  </script>
+  <script src="/static/js-b/util.js">
+  </script>
+  <script src="/static/js-b/simple-bootstrap-paginator.js">
+  </script>
+  <!--[if lte IE 8]><script src="/static/js-b/ie/respond.min.js"></script><![endif]-->
+  <script src="/static/js-b/main.js">
+  </script>
+ </body>
+</html>

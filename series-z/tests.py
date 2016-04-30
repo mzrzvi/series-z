@@ -8,10 +8,14 @@ from unittest import main, TestCase
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import *
+from time import time
+from init_db import init_db
 
-engine = create_engine('sqlite:///seriesz.db')
-Session = sessionmaker(bind=engine)
-s = Session()
+# s = init_db('test_dbs/series-z-%f' % time())
+# Session = sessionmaker(bind=engine)
+# s = Session()
+
+BASE_URL = 'series-z/'
 
 class TestIdb(TestCase):
     # -------------
@@ -19,6 +23,8 @@ class TestIdb(TestCase):
     # -------------
 
     def test_founder_add_1(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -49,6 +55,8 @@ class TestIdb(TestCase):
         s.commit()
 
     def test_founder_query_1(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -91,6 +99,8 @@ class TestIdb(TestCase):
         s.commit()
 
     def test_founder_delete_1(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -124,6 +134,8 @@ class TestIdb(TestCase):
     # ---------------
 
     def test_founder_init_1(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -152,6 +164,8 @@ class TestIdb(TestCase):
         self.assertEqual(city_name, mark.city_name)
 
     def test_founder_init_2(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -180,6 +194,8 @@ class TestIdb(TestCase):
         self.assertEqual(city_name, mark.city_name)
 
     def test_founder_init_3(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -208,6 +224,8 @@ class TestIdb(TestCase):
         self.assertEqual(city_name, mark.city_name)
 
     def test_founder_city(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -237,6 +255,8 @@ class TestIdb(TestCase):
         s.commit()
 
     def test_founder_startup(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -283,6 +303,8 @@ class TestIdb(TestCase):
     # --------------
 
     def test_startup_add_1(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -321,6 +343,8 @@ class TestIdb(TestCase):
         s.commit()
 
     def test_startup_query_1(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -352,6 +376,8 @@ class TestIdb(TestCase):
         s.commit()
 
     def test_startup_delete_1(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -386,6 +412,8 @@ class TestIdb(TestCase):
     # ----------------
 
     def test_startup_init_1(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -414,6 +442,8 @@ class TestIdb(TestCase):
         self.assertEqual(logo_url, facebook.logo_url)
 
     def test_startup_init_2(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -442,6 +472,8 @@ class TestIdb(TestCase):
         self.assertEqual(logo_url, facebook.logo_url)
 
     def test_startup_init_3(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -470,6 +502,8 @@ class TestIdb(TestCase):
         self.assertEqual(logo_url, facebook.logo_url)
 
     def test_startup_city(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -499,6 +533,8 @@ class TestIdb(TestCase):
 
 
     def test_startup_founder(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -545,6 +581,8 @@ class TestIdb(TestCase):
     # ---------------
 
     def test_city_add_1(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -569,7 +607,7 @@ class TestIdb(TestCase):
         s.commit()
 
     def test_city_query_1(self):
-
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
 
         name = 'Test City'
         investor_followers = 123
@@ -587,7 +625,7 @@ class TestIdb(TestCase):
 
         s.add(menlo)
         s.add(mp)
-        s.commit
+        s.commit()
 
         mp_test = s.query(City).filter(City.name == "MP")[0]
 
@@ -598,6 +636,8 @@ class TestIdb(TestCase):
         s.commit()
 
     def test_city_delete_1(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -619,6 +659,8 @@ class TestIdb(TestCase):
     # -----------------
 
     def test_city_init_1(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
         name = 'Test City'
         investor_followers = 123
         popularity = 123
@@ -633,6 +675,8 @@ class TestIdb(TestCase):
         self.assertEqual(num_people, menlo.num_people)
 
     def test_city_init_2(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
         name = ""
         investor_followers = 0
         popularity = 0
@@ -647,6 +691,8 @@ class TestIdb(TestCase):
         self.assertEqual(num_people, menlo.num_people)
 
     def test_city_init_3(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
         name = None
         investor_followers = None
         popularity = None
@@ -662,6 +708,8 @@ class TestIdb(TestCase):
 
 
     def test_city_startup(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
@@ -691,6 +739,8 @@ class TestIdb(TestCase):
 
 
     def test_city_founder(self):
+        s = init_db(BASE_URL + 'test_dbs/series-z-%f' % time())
+
 
         name = 'Test City'
         investor_followers = 123
