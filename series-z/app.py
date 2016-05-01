@@ -237,7 +237,7 @@ def api_startups():
     data = []
 
     for startup in startups:
-        data.append(row_dict(startup))
+        data.append(startup.serialize)
 
     data = json.dumps(data)
 
@@ -248,7 +248,7 @@ def api_startup(id):
     startup = db_session.query(Startup).get(id)
 
     if startup:
-        startup = row_dict(startup)
+        startup = startup.serialize
         data = json.dumps(startup, ensure_ascii=False)
     else:
         data = ''
@@ -261,7 +261,7 @@ def api_founders():
     founders = db_session.query(Founder).all()
     data = []
     for founder in founders:
-        data.append(row_dict(founder))
+        data.append(founder.serialize)
 
     data = json.dumps(data)
 
@@ -273,7 +273,7 @@ def api_founder(id):
     founder = db_session.query(Founder).get(id)
 
     if founder:
-        founder = row_dict(founder)
+        founder = founder.serialize
         data = json.dumps(founder, ensure_ascii=False)
     else:
         data = ''
@@ -285,7 +285,7 @@ def api_cities():
     cities = db_session.query(City).all()
     data = []
     for city in cities:
-        data.append(row_dict(city))
+        data.append(city.serialize)
 
     data = json.dumps(data)
 
@@ -297,20 +297,13 @@ def api_city(id):
     city = db_session.query(City).get(id)
 
     if city:
-        city = row_dict(city)
+        city = city.serialize
         data = json.dumps(city, ensure_ascii=False)
     else:
         data = ''
 
 
     return data
-
-def row_dict(row):
-    d = {}
-    for column in row.__table__.columns:
-        d[column.name] = str(getattr(row, column.name))
-
-    return d
 
 
 ################ Danyal end   ################

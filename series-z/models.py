@@ -56,6 +56,20 @@ class Founder(Base):
         self.num_startups = num_startups
         self.city_name = city_name
         self.city = city
+
+    @property
+    def serialize(self):
+       return dict( 
+                    name = self.name,
+                    angel_id = self.angel_id,
+                    popularity = self.popularity,
+                    image_url = self.image_url,
+                    bio = self.bio,
+                    rank = self.rank,
+                    num_startups = self.num_startups,
+                    city_name = self.city_name,
+                    city = self.city.serialize
+                )
 #-------
 #Startup
 #-------
@@ -99,6 +113,20 @@ class Startup(Base):
         self.logo_url = logo_url
         self.city = city
 
+    @property
+    def serialize(self):
+        return dict(
+                    name = self.name,
+                    location = self.location,
+                    popularity = self.popularity,
+                    market = self.market,
+                    num_founders = self.num_founders,
+                    product_desc = self.product_desc,
+                    company_url = self.company_url,
+                    logo_url = self.logo_url,
+                    city = self.city.serialize
+                )
+
 #--------
 #City
 #--------
@@ -132,3 +160,12 @@ class City(Base):
         self.num_companies = num_companies
         self.num_people = num_people
 
+    @property
+    def serialize(self):
+        return dict(
+                    name = self.name,
+                    investor_followers = self.investor_followers,
+                    popularity = self.popularity,
+                    num_companies = self.num_companies,
+                    num_people = self.num_people
+                )
